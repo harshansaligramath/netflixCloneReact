@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import Banner from './components/Banner'
 import './App.css';
+import EnjoySection from './components/EnjoySection';
+import WatchEveryWhere from './components/WatchEveryWhere';
+import CreateProfileForChildren from './components/CreateProfileForChildren';
+import DownloadYourProgram from './components/DownloadYourProgram';
+import FreaquentlyAskedQuestions from './components/FreaquentlyAskedQuestions';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Banner/>
+      <EnjoySection/>
+      <WatchEveryWhere/>
+      <CreateProfileForChildren/>
+      <DownloadYourProgram/>
+      <FreaquentlyAskedQuestions/>
+      <Footer/>
     </div>
   );
 }
