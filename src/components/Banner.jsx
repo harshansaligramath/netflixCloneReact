@@ -1,7 +1,17 @@
-
+import { useEffect, useState } from "react"
+import axios from "../constants/axios"
+import {apiKey,imageUrl} from"../constants/Constants"
 const Banner = () => {
+    const [movie, setMovie] = useState()
+    useEffect(() => {
+        axios.get(`trending/all/week?api_key=${apiKey}`).then((response)=>{
+            console.log(response.data.results[0]);
+            setMovie(response.data.results[2])
+        })
+    }, [])
+    
   return (
-    <div class="header">
+    <div class="header" style={{backgroundImage:`url(${movie ?imageUrl+ movie.backdrop_path:""})`}}>
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
@@ -21,11 +31,11 @@ const Banner = () => {
             </nav>
 
             <div class="header-content">
-                <h1>Unlimited movies, TV shows, and more.</h1>
+                <h1>{movie?movie.title:""}.</h1>
                 <h2>Watch anywhere. Cancel anytime.</h2>
 
                 <div class="form-field">
-                    <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+                    <h3>{movie?movie.overview:""}</h3>
 
                     <form class="form">
                         <div class="form-group">
